@@ -1,0 +1,8 @@
+body{
+   background:url('./assets/fondo-login.jpg');   
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 100vh;
+   background-color: red;
+   }
