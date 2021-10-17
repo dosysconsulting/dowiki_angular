@@ -5,7 +5,7 @@ import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-princi
 
 const routes: Routes = [
 {path: 'crear-articulo',component:CrearArticuloComponent},
-{path: 'pantalla-principal',component:PantallaPrincipalComponent},
+{path: '',component:PantallaPrincipalComponent},
 ];
 
 @NgModule({

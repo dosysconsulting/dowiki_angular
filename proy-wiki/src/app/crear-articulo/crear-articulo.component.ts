@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit,} from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-crear-articulo',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearArticuloComponent implements OnInit {
 
-  constructor() { }
+  formdata:any; 
 
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder) { }
+
+  onClickSubmit(data:any) {
+    console.log(data);
+    if(this.formdata.invalid){
+      this.formdata.get('description').markAsTouched();
+    }
   }
 
+  ngOnInit(): void {
+    this.formdata = this.formBuilder.group({
+      description: ['', [Validators.required,
+        Validators.maxLength(400), Validators.minLength(5)]]
+  });
+  }
 }
