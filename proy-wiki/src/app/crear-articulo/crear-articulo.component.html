@@ -3,7 +3,7 @@
         <div class="text-center  classfuente ">Articulo</div>
         <div class="form-group col-lg-7 mt-3">
             <label for="titulo">TITULO</label>
-            <input type="text" id="titulo"class="form-control">
+            <input type="text" id="titulo" class="form-control" [formControl]="titulo">
         </div>
         <div class="form-group  col-lg-7 mt-3">
             <label for="imagen">IMAGEN</label>
@@ -13,7 +13,7 @@
         </div>
         <div class="form-group col-lg-7 mt-3">
             <label for="categoria">CATEGORIA</label>
-            <select class="form-select" label="" >
+            <select class="form-select" label="" [formControl]="categoria">
                 <option value="1">Cultura</option>
                 <option value="2">Historia y Sociedad</option>
                 <option value="3">Ciencia</option>
@@ -24,20 +24,8 @@
         </div>
         <div class="form-group col-lg-7 mt-3">
             <label for="descripcion del error">DESCRIPCION DEL ERROR</label>
-            <textarea  id="" cols="15" rows="6" class="form-control"></textarea>
+            <textarea  id="" cols="15" rows="6" class="form-control" [formControl]="descripcion"></textarea>
         </div>       
-            <button class="btn btn-primary col-lg-7 justify-content-md-end mt-3 " style="text-align: center;" type="submmit">Guardar</button>        
+            <button class="btn btn-primary col-lg-7 justify-content-md-end mt-3 " (click)="guardar()" style="text-align: center;" type="submmit">Guardar</button>        
          </div>
-</div>
-<div class="jumbotron text-center">
-    <h1>Angular Text Editor with Limit Validation</h1>
-  </div>
-<div class="container">
-    <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
-  <div class="form-group">
-        <label for="email">Description:</label>
-        <angular-editor [placeholder]="'Enter text here...'" formControlName="description"></angular-editor>
-        <div *ngIf="formdata.controls.description.errors && formdata.controls.description.touched" class="error">description is required(Max 400 - Min 5).</div>
-      </div>
-    </form>
 </div>

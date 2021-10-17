@@ -1,5 +1,9 @@
 import { Component, OnDestroy, OnInit,} from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { ArticuloService } from '../services/articulo.service';
+import { Router } from '@angular/router';
+import { formatDate } from "@angular/common";
+
 
 @Component({
   selector: 'app-crear-articulo',
@@ -8,21 +12,28 @@ import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class CrearArticuloComponent implements OnInit {
 
-  formdata:any; 
+  titulo = new FormControl('');
+  categoria = new FormControl('');
+  descripcion = new FormControl('');
 
-  constructor(private formBuilder: FormBuilder) { }
-
-  onClickSubmit(data:any) {
-    console.log(data);
-    if(this.formdata.invalid){
-      this.formdata.get('description').markAsTouched();
-    }
-  }
+  constructor(
+    private ArticuloService: ArticuloService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.formdata = this.formBuilder.group({
-      description: ['', [Validators.required,
-        Validators.maxLength(400), Validators.minLength(5)]]
-  });
   }
+
+  guardar(){
+    const body = {
+      titulo: this.titulo.value,
+      categoria: this.categoria.value,
+      descripcion: this.descripcion.value,
+    }
+    
+    this.ArticuloService.createArticulo(body).subscribe((res) => {
+      this.router.navigate(['']);
+    });
+  }
+  
 }
