@@ -35,5 +35,9 @@ export class CrearArticuloComponent implements OnInit {
       this.router.navigate(['']);
     });
   }
+  nuevacategoria (){
+    
+
+  }
   
 }

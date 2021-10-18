@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
 import { CrearArticuloComponent } from './crear-articulo/crear-articulo.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { CrearCategoriaComponent } from './crear-categoria/crear-categoria.component';
 
 
 
@@ -17,6 +18,7 @@ import { NgxEditorModule } from 'ngx-editor';
     AppComponent,
     PantallaPrincipalComponent,
     CrearArticuloComponent,
+    CrearCategoriaComponent,
  
   ],
   imports: [
