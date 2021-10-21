@@ -10,7 +10,7 @@ import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-princi
 import { CrearArticuloComponent } from './crear-articulo/crear-articulo.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { CrearCategoriaComponent } from './crear-categoria/crear-categoria.component';
-
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 
 @NgModule({
@@ -27,6 +27,7 @@ import { CrearCategoriaComponent } from './crear-categoria/crear-categoria.compo
     NgxEditorModule,
     AngularEditorModule,
     FormsModule,
+    FilterPipeModule,
     HttpClientModule,
     ReactiveFormsModule,
   ],

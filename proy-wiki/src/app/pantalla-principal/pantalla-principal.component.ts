@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CrearArticuloComponent } from '../crear-articulo/crear-articulo.component';
+import { ArticuloService } from '../services/articulo.service';
+import { Articulo } from '../models/articulo';
+import { FilterPipe } from 'ngx-filter-pipe';
 
 @Component({
   selector: 'app-pantalla-principal',
@@ -7,14 +10,28 @@ import { CrearArticuloComponent } from '../crear-articulo/crear-articulo.compone
   styleUrls: ['./pantalla-principal.component.css']
 })
 export class PantallaPrincipalComponent implements OnInit {
-
-
-
-  constructor() { 
+  listArticulo: any;
+  filterArticulo : any = { titulo: ''};
+  constructor(private ArticuloService: ArticuloService,
+    private filterPipe: FilterPipe) { 
     CrearArticuloComponent
   }
 
   ngOnInit(): void {
+  }
+
+  search(){
+    const body ={
+    }
+    this.ArticuloService.searchArticulo(body).subscribe((data)=>{
+      console.log(data)
+      this.listArticulo=data;
+      console.log(this.listArticulo)
+    })
+  }
+
+  limpiar(){
+    this.listArticulo = [];
   }
 
 }

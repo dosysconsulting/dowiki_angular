@@ -1,14 +1,21 @@
-<div class="container pt-5">
-    <div class="text-center classfuente">Login</div>
+<div class="container pt-30">
+    <div class="text-right classfuente">Login</div>
 </div>
 <nav class="navbar navbar-light" style="background-color: #83b5da;">
     <div class="container-fluid mt-3"> 
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+        <input class="form-control me-2" type="text" placeholder="search" aria-label="Search" name="search" [(ngModel)]="filterArticulo.titulo" />
+        <!--input type="text" [(ngModel)]="filterArticulo.titulo" name="tit" placeholder="Type to filter by name"-->
+        <button class="btn btn-outline-success" (click)="search()" type="submit">Buscar</button>
+        <button class="btn btn-outline-success" (click)="limpiar()" >Limpiar</button>
       </form>
     </div>
 </nav>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <input class="btn btn-primary me-md-5 mt-5" type="button" value="Agregar articulo" routerLink="./crear-articulo">
 </div>
+<li *ngFor="let articulo of listArticulo | filterBy: filterArticulo">
+  {{ articulo.id_articulo }}
+  {{ articulo.titulo }}
+  {{ articulo.descripcion }}
+</li>

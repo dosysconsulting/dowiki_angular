@@ -19,4 +19,8 @@ export class ArticuloService {
     return this.http.post(this.endpoints.articulo(), body);
   }
   
+  searchArticulo(body:any) {
+    return this.http.get(this.endpoints.articulo(), body);
+  }
+
 }
