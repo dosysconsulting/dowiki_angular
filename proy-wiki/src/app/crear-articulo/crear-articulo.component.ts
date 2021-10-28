@@ -15,7 +15,7 @@ export class CrearArticuloComponent implements OnInit {
   titulo = new FormControl('');
   categoria = new FormControl('');
   descripcion = new FormControl('');
-
+  
   constructor(
     private ArticuloService: ArticuloService,
     private router: Router
@@ -37,7 +37,6 @@ export class CrearArticuloComponent implements OnInit {
   }
   nuevacategoria (){
     
-
   }
   
 }

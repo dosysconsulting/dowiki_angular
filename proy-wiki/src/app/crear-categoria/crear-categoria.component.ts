@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-categoria',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearCategoriaComponent implements OnInit {
 
+  clasificacioncategoria = new FormControl ('');
+  Caracteristicas = new FormControl ('');
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  guardarCategoria(){
+    
   }
 
 }
